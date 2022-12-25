@@ -1,0 +1,105 @@
+.cap {
+  text-transform: uppercase !important;
+  /* background-color: aqua; */
+  color: rgb(252, 155, 10) !important;
+  border-radius: 20px;
+}
+/* .navbar-brand::first-letter, */
+.navbar-brand i,
+.head::first-letter {
+  font-variant: small-caps;
+  color: rgb(252, 155, 10) !important;
+  font-weight: bolder;
+  font-size: 40px;
+  font-style: italic;
+}
+.navbar-brand {
+  font-weight: bold;
+  color: rgb(67, 118, 247);
+  text-shadow: 0 0 5px rgb(252, 155, 10);
+}
+.head::first-letter {
+  font-size: 50px;
+}
+.t_cities {
+  text-align: left;
+}
+thead {
+  border: 1px solid lightskyblue;
+  border-radius: 15px;
+  background-color: rgb(67, 118, 247);
+  color: white;
+}
+nav {
+  border: 1px solid lightskyblue;
+  border-top: none;
+  padding: 0 !important;
+}
+.s-cities {
+  color: rgb(252, 155, 10);
+}
+ul li {
+  font-weight: bold;
+}
+ul li span {
+  font-weight: 500;
+}
+.s-tag {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+tbody tr td {
+  font-weight: 500 !important;
+}
+img {
+  vertical-align: bottom;
+  animation-name: rotate;
+  animation-timing-function: linear;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+  border-radius: 25px;
+}
+@keyframes rotate {
+  from {
+    transform: rotateY(0deg);
+    box-shadow: 0 0 10px rgb(252, 155, 10);
+    
+  }
+  50%{
+
+    box-shadow: 0 0 10px rgb(252, 155, 10);
+  }
+  to {
+    transform: rotateY(360deg);
+    box-shadow: 0 0 10px rgb(10, 62, 252);
+    
+  }
+}
+input {
+  /* outline-color: aqua !important; */
+  border-color: rgb(252, 155, 10) !important;
+}
+
+.b-nav {
+  height: 50px;
+  width: 100%;
+  background-color: antiquewhite;
+}
+
+.navbg {
+  background-color: rgba(0, 0, 0,0.9) !important;
+}
+.navtog {
+  background-color: white;
+}
+.hcolor {
+  color: white;
+}
+.card{
+  box-shadow: 2px 2px 6px black !important;
+}
+.cardD{
+  box-shadow: 2px 2px 6px rgb(252, 155, 10)!important;
+}
+
+

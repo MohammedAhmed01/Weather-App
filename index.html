@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Weather App</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
+  </head>
+  <body>
+   <div id="container">
+    <nav class="navbar navbar-expand-lg bg-light" id="nav">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="index.html" ><img src="favicon.png" width="50px" alt=""> Weather<i class="bi bi-cloud-sun"></i></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Cities / States
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" id="hyd" href="#">Hyderabad</a></li>
+                  <li><a class="dropdown-item" id="ap" href="#">Andhra Pradesh</a></li>
+                  <li><a class="dropdown-item" id="delhi" href="#">Delhi</a></li>
+                  <li><a class="dropdown-item" id="chennai" href="#">Chennai</a></li>
+                  <li><a class="dropdown-item" id="tn" href="#">Tamil Nadu</a></li>
+                  <li><a class="dropdown-item" id="mumbai" href="#">Mumbai</a></li>
+
+                </ul>
+              </li>
+              
+            </ul>
+            <div class="form-check form-switch">
+              <input class="form-check-input" onclick="change()" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+              <label class="form-check-label " for="flexSwitchCheckDefault" id="modeValue">Light</label>
+            </div>
+            <form class="d-flex px-3" role="search">
+              <input class="form-control me-2" id="city" type="search" placeholder="Cities/States/Countries" aria-label="Search">
+              <button class="btn btn-outline-primary" type="submit" id="submit">Search</button>
+            </form>
+          </div>
+        </div>
+      </nav>
+
+      <div class="container mt-3" >
+        
+        <h1 class="text-center m-3 head">Weather of <span id="cityname" class="cap"></span></h1>
+        <main>
+            <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
+              <div class="col">
+                <div class="card mb-4 rounded-3 shadow-sm border-primary">
+                  <div class="card-header py-3  text-bg-primary border-primary">
+                    <h4 class="my-0 fw-normal">Temperature <i class="bi bi-thermometer-sun"></i></h4>
+                  </div>
+                  <div class="card-body">
+                    <h1 class="card-title pricing-card-title"><span id="temp_h"></span><small class="text-muted fw-light">&#8451;</small></h1>
+                    <ul class="list-unstyled mt-3 mb-4">
+                      <li>Temperature is <span id="temp"></span>&#8451;</li>
+                      <li>Min-temperature is <span id="min_temp"></span>&#8451;</li>
+                      <li>Max-temperature is <span id="max_temp"></span>&#8451;</li>
+                      
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="col">
+                <div class="card mb-4 rounded-3 shadow-sm border-primary">
+                  <div class="card-header py-3  text-bg-primary border-primary">
+                    <h4 class="my-0 fw-normal">Humidity Info <i class="bi bi-water"></i></h4>
+                  </div>
+                  <div class="card-body">
+                    <h1 class="card-title pricing-card-title"><span id="hum_h"></span><small class="text-muted fw-light">%</small></h1>
+                    <ul class="list-unstyled mt-3 mb-4">
+                        <li>Humidity is <span id="hum"></span> %</li>
+                      <li>Wind Degree is <span id="wind_deg"></span>&#8451;</li>
+                      <li>Feels Like <span id="feels"></span></li>
+                     
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="col">
+                <div class="card mb-4 rounded-3 shadow-sm border-primary">
+                  <div class="card-header py-3 text-bg-primary border-primary">
+                    <h4 class="my-0 fw-normal">Wind Info <i class="bi bi-wind"></i></h4>
+                  </div>
+                  <div class="card-body">
+                    <h1 class="card-title pricing-card-title"><span id="wind_sh"></span><small class="text-muted fw-light">km/h</small></h1>
+                    <ul class="list-unstyled mt-3 mb-4">
+                      <li>Wind Speed is <span id="wind_s"></span> km/h</li>
+                      <li>Sunrise Time is <span id="sun_r"></span></li>
+                      <li>Sunset Time is <span id="sun_s"></span></li>
+                     
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+        
+            <h2 class="display-6 text-center mb-4 s-cities"> Weather Of Some Cities / States</h2>
+        
+            <div class="table-responsive">
+              <table class="table text-center">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;" class="t_cities">Cities/States/countries</th>
+                    <th style="width: 20%;">Temperature</th>
+                    <th style="width: 20%;">Humidity</th>
+                    <th style="width: 20%;">Wind <Speed></Speed></th>
+                    <th style="width: 20%;">Wind Degree</th>
+                    
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row" class="text-start">Hyderabad</th>
+                    <td><span id="h_t"> </span>&#8451;<use xlink:href="#check"></use></svg></td>
+                    <td><span id="h_h"></span>%<svg class="bi" width="24" height="24"><use xlink:href="#check"></use></svg></td>
+                    <td><span id="h_w"></span>km/h<svg class="bi" width="24" height="24"><use xlink:href="#check"></use></svg></td>
+                    <td><span id="h_wd"></span>%<svg class="bi" width="24" height="24"><use xlink:href="#check"></use></svg></td>
+                  </tr>
+                  <tr>
+                    <th scope="row" class="text-start">Andhra Pradesh</th>
+                    <td><span id="ap_t"></span>&#8451;</td>
+                    <td><span id="ap_h"></span>%<svg class="bi" width="24" height="24"><use xlink:href="#check"></use></svg></td>
+                    <td><span id="ap_w"></span>km/h<svg class="bi" width="24" height="24"><use xlink:href="#check"></use></svg></td>
+                    <td><span id="ap_wd"></span>%<svg class="bi" width="24" height="24"><use xlink:href="#check"></use></svg></td>
+                  </tr>
+                </tbody>
+        
+                <tbody>
+                  <tr>
+                    <th scope="row" class="text-start">Mumbai</th>
+                    <td><span id="m_t"></span>&#8451;<use xlink:href="#check"></use></svg></td>
+                    <td><span id="m_h"></span>%<svg class="bi" width="24" height="24"><use xlink:href="#check"></use></svg></td>
+                    <td><span id="m_w"></span>km/h<svg class="bi" width="24" height="24"><use xlink:href="#check"></use></svg></td>
+                    <td><span id="m_wd"></span>%<svg class="bi" width="24" height="24"><use xlink:href="#check"></use></svg></td>
+                  </tr>
+                  <tr>
+                    <th scope="row" class="text-start">Tamil Nadu</th>
+                    <td><span id="t_t"></span>&#8451;</td>
+                    <td><span id="t_h"></span>%<svg class="bi" width="24" height="24"><use xlink:href="#check"></use></svg></td>
+                    <td><span id="t_w"></span>km/h<svg class="bi" width="24" height="24"><use xlink:href="#check"></use></svg></td>
+                    <td><span id="t_wd"></span>%<svg class="bi" width="24" height="24"><use xlink:href="#check"></use></svg></td>
+                  </tr>
+                  <tr>
+                    <th scope="row" class="text-start">Chennai</th>
+                    <td><span id="c_t"></span>&#8451;</td>
+                    <td><span id="c_h"></span>%<svg class="bi" width="24" height="24"><use xlink:href="#check"></use></svg></td>
+                    <td><span id="c_w"></span>km/h<svg class="bi" width="24" height="24"><use xlink:href="#check"></use></svg></td>
+                    <td><span id="c_wd"></span>%<svg class="bi" width="24" height="24"><use xlink:href="#check"></use></svg></td>
+                  </tr>
+                  <tr>
+                    <th scope="row" class="text-start">Delhi</th>
+                    <td><span id="d_t"></span>&#8451;</td>
+                    <td><span id="d_h"></span>%<svg class="bi" width="24" height="24"><use xlink:href="#check"></use></svg></td>
+                    <td><span id="d_w"></span>km/h<svg class="bi" width="24" height="24"><use xlink:href="#check"></use></svg></td>
+                    <td><span id="d_wd"></span>%<svg class="bi" width="24" height="24"><use xlink:href="#check"></use></svg></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </main> 
+      </div>
+    </div>
+      <nav  class="b-nav navbar navbar-expand-lg bg-light"></nav>
+    <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+  </body>
+</html>
